@@ -1,0 +1,21 @@
+/* new */
+
+.fixed {
+    background-color: whitesmoke;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.banner-img {
+    height: 100px;
+}
+
+.itch-io li::before {
+    content: "\f83a";
+    font-family: "Font Awesome 5 Free";
+}
+
+.hidden {
+    display: none;
+}
