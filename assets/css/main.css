@@ -2113,6 +2113,8 @@
 		.image img {
 			border-radius: 0;
 			display: block;
+            height: auto;
+            width: 100%;
 		}
 
 		.image.left, .image.right {
@@ -2154,6 +2156,10 @@
 			.image.main img {
 				width: 100%;
 			}
+
+.blog-inner{
+    width: 100%;
+}
 
 /* List */
 
@@ -2684,6 +2690,8 @@
 			max-width: 100%;
 		}
 
+.inner img {
+}
 		.wrapper.alt {
 			border-top: solid 2px;
 			border-top-color: rgba(144, 144, 144, 0.25);
@@ -3347,3 +3355,7 @@
 
 		}
 
+
+#lastUpdate {
+    text-align: center;
+}

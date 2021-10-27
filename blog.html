@@ -23,7 +23,7 @@
         
         <link rel="stylesheet" href="assets/css/styles.css">
 
-
+        <script src="assets/js/blog.js"></script>
 	</head>
 	<body>
         <!-- Navbar -->
@@ -52,9 +52,11 @@ Links</a>
                         <p>Here I'll keep all my ramblings.</p>
 					</section>
 					<section>
-                        <h4>2021</h4>
+                        <h4><a href='#2021'>2021</a></h4>
                         <ul class="contact fa-ul">
-                        <li><a href="#2021-feb">February</a></li></ul>
+                            <li><a href="#2021-oct">October</a></li>
+                        <li><a href="#2021-feb">February</a></li>
+                        </ul>
 					</section>
 				</div>
 			</section>
@@ -62,9 +64,290 @@ Links</a>
 
 		<!-- Two -->
 			<section id="two" class="wrapper style2 alt">
-				<div class="inner">
+                
+				
+                    <!--
+					<ul class="actions special">
+						<li><a href="#" class="button alt">Ipsum magna tempus</a></li>
+					</ul>
+                    -->   
+				
+                <div class="inner">
+                    <h3 id="2021">2021</h3>
+					<div id="2021-oct" class="spotlight">
+						<div class="image">
+                            <img alt="A fledgling tile based adventure game, with ways of showing enemies and yourself on a screen." src="assets/imgs/2DArray.webp">
+						</div>
+						<div class="content">
+							<h3>Teaching the Basics of 2D Array Games, Tilebased</h3>
+							<p>2021 - October, 27: Everyone wants to make a roguelike, let me show you how to start in HTML, followed by Godot. == Under Construction ==<br>  
+                            </p>
+							<ul class="actions">
+								<li><button onclick="show_passage('2')">Learn!</button></li>
+							</ul>
+                            <p id="2" class="hidden">Hello! <code>#Let's get started, this section features code snippets!</code><br/>
+                            So you want to make a roguelike? Or any other game that uses a 2D Array, lets get looking at one.<br/><code>var Array = [["player", 0, "kobold"],[0,0,"kobold"],["kobold",0,"ogre"]]</code> Yes that's a 2D array and that should work in both JavaScript and GDScript, my tools of choice. If arrays aren't in the language you're using, go ahead and implement them. <a href="https://en.wikipedia.org/wiki/Array_programming">You can learn from a source like Wikipedia if you have the dire need to develop your own iteration of the array.</a> So now that we have an array, feel free to copy that one, we need to get something on screen, I will show you in JavaScript first and then more generally.<br/> So let's review our goals, we need to cover "player", the number 0, "kobold", and even an "ogre". My task for you now is to get those assets ready, but if you want to be simple, use "@", "0", "k", and "O". Best to capitalize the ogre as it is strong. As for the @ symbol, well some programmer used to represent the player and we've been using it ever since.<br/>Now we need to display it, and I hope you have those assets ready and an IDE with HTML/CSS/JavaScript capability, cuz we're going in hot!<br/><textarea style="color: #e83e8c" readonly='true'>function drawMap() {
+    for (var i = 0; i < mapArray.length; i++) {
+                                        for (var j = 0; j < mapArray[i].length; j++) { 
+                                // YOUR NEXT STEP 
+                                }</textarea><br/>This will do the brute labor, it will iterate through the length of <code>mapArray</code> so set <code>Array</code> to be <code>mapArray</code> best not to be too generic! If you didn't know weHave a specialWay of naming variables, but you can really name it anything. I mean that! As long as what you choose doesn't cause errors that is! But that's basics.<br/>Next!<br/><br/><textarea style="color: #e83e8c" readonly='true'>if(mapArray[i][j] == 0) {
+                $('#containerMap').append(tileGrass.advDetail);
+            }</textarea> I hope you have tile grass, cuz 0 is next! I just threw some new curveballs at you. You need JQuery for this, it didn't work well without it for me. I included <code>tileGrass.advDetail</code> as a dictionary containing the term "advDetail" and that looks like this! <textarea style="color: #e83e8c" readonly="true">tilesMain = [
+    tileGrass = {id: 0, name: "Grass", advDetail: '<div class="grass"></div>'}]</textarea> So we're using jQuery to append a class, but to what? Yes you need a div called <textarea style="color: #e83e8c" readonly='true'><div id="containerMap">
+                <!-- example tile for testing purposes, containerMap should be empty when first loaded. -->
+             <!--   <div class="grass"></div>   -->
+            </div></textarea> Yes that's my comment there, if you've gotten this far, maybe you want to review my first major <a href="https://github.com/KaizNike/Beast-Kings/blob/master/Scripts/adventurescript.js">failed project.</a> If you click that, you agree to learn from my mistakes! Also copy this code over to your IDE to get a better typecasing, yes even this tutorial is under construction! You can uncomment that div to get the grass to display! But wait we don't have a grass class! (that rhymed!)<textarea style="color: #e83e8c" readonly='true'>/* example of a single tile */
+.grass {
+    height: 20px;
+    width: 20px;
+    position:relative;
+    float:left;
+    background-color: green;
+    outline: 1px solid #ccc;
+        }</textarea> That's 0 covered! Try it out yourself, I hope this worked! Let me get the full script for you! See you in part two!</p>
+                            <ul class="actions">
+								<li><button onclick="show_passage('3')">Learn Part Two!</button></li>
+							</ul>
+                            <p id="3" class="hidden">Here is the script, download to a html file and run! All good to go. Though if you followed the first part, you should have this, if you don't, raise an issue on <a href="https://github.com/KaizNike/KaizNike.github.io/issues">Github.</a><textarea style="color: #e83e8c" readonly="true"><html>  <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head> 
+
+    <style>
+    /* example of a single tile */
+.grass {
+    height: 20px;
+    width: 20px;
+    position:relative;
+    float:left;
+    background-color: green;
+    outline: 1px solid #ccc;
+        }
+    </style>
+    <script>
+
+        
+    var mapArray = [["player", 0, "kobold"],[0,0,"kobold"],["kobold",0,"ogre"]]
+    tilesMain = [
+    tileGrass = {id: 0, name: "Grass", advDetail: '<div class="grass"></div>'}]   
+    
+    window.onload = function() {
+        drawMap()
+    }
+        function drawMap() {
+    for (var i = 0; i < mapArray.length; i++) {
+                                        for (var j = 0; j < mapArray[i].length; j++) { 
+                                if(mapArray[i][j] == 0) {
+                $('#containerMap').append(tileGrass.advDetail);
+            }
+                                }
+    }
+        }
+    </script>
+<body>
+    Hi!
+    <div id="containerMap">
+                <!-- example tile for testing purposes, containerMap should be empty when first loaded. -->
+             <!--   <div class="grass"></div>   -->
+        </div>
+    </body>
+</html></textarea> Hope you got all that, now if that doesn't work bother @KaizarNike on Twitter. Now to get crazy! Let's, instead of implementing ECS, have two arrays! <code>mapArray=[[0,0,0],[0,0,0],[0,0,0]] actorArray=[["player", 0, "kobold"],[0,0,"kobold"],["kobold",0,"ogre"]]</code>Hmm now how's it look? Nine squares in a row, we can do better. Add this to style. <code>#containerMap {
+            height: 60px;
+            width: 60px;
+        }</code> So what have we done? We have nine boxes in a cube. Cool, time for dudes. I got stuck in dev hell, so look what I have wrought!<textarea style="color: #e83e8c" readonly="true"><!DOCTYPE html>
+<html>  <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head> 
+
+    <style>
+    /* example of a single tile */
+.grass {
+    height: 20px;
+    width: 20px;
+    position:relative;
+    float:left;
+    background-color: green;
+    outline: 1px solid #ccc;
+        }
+        
+        .grass p {
+                z-index: 2;
+    position: absolute;
+    display: block;
+    top: 0px;
+    left: 2px;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+        }
+        
+        #containerMap {
+            height: 60px;
+            width: 60px;
+        }
+    </style>
+    <script>
+
+    var mapArray = [["player", 0, "kobold"],[0,0,"kobold"],["kobold",0,"ogre"]]
+    tilesMain = [
+    tileGrass = {id: 0, name: "Grass", advDetail: '<div class="grass"></div>'},
+    tilePlayerGrass = {id: 1, name: "Player on Grass", advDetail: '<div class="grass"><p>@</p></div>'}]   
+    
+    window.onload = function() {
+        drawMap()
+    }
+        function drawMap() {
+    for (var i = 0; i < mapArray.length; i++) {
+        for (var j = 0; j < mapArray[i].length; j++) { 
+            console.log(mapArray[i][j])
+            if(mapArray[i][j] === "player") {
+                console.log('YES!');
+                $('#containerMap').append(tilePlayerGrass.advDetail);
+                continue;
+            }
+            if(mapArray[i][j] == 0) {
+                console.log("NO");
+                $('#containerMap').append(tileGrass.advDetail);
+                continue;
+            }
+        }
+    }
+}
+    
+            
+        
+    </script>
+<body>
+    Hi!
+    <p>@</p>
+    <!--
+    <div class="grass"><p>@</p></div>
+-->
+    <div id="containerMap">
+                <!-- example tile for testing purposes, containerMap should be empty when first loaded. -->
+             <!--   <div class="grass"></div>   -->
+        </div>
+    </body>
+                                </html></textarea> The second array is gone, and we are left with the origin. Now let's finish the job! We need to add two more tiles, of the kobold and ogre, can you guess it? <textarea style="color: #e83e8c" readonly="true">var mapArray = [["player", 0, "kobold"],[0,0,"kobold"],["kobold",0,"ogre"]]
+    tilesMain = [
+    tileGrass = {id: 0, name: "Grass", advDetail: '<div class="grass"></div>'},
+    tilePlayerGrass = {id: 1, name: "Player on Grass", advDetail: '<div class="grass"><p>@</p></div>'}, 
+    tileKoboldGrass = {id: 2, name: "Kobold on Grass", advDetail: '<div class="grass"><p>k</p></div>'},
+    tileOgreGrass = {id: 3, name: "Ogre on Grass", advDetail: '<div class="grass"><p>O</p></div>'}]  </textarea> This is just one way of organizing things, now lets round this out! Let's continue the sprint with the drawMap, the final step! <textarea style="color: #e83e8c", readonly="true">function drawMap() {
+    for (var i = 0; i < mapArray.length; i++) {
+        for (var j = 0; j < mapArray[i].length; j++) { 
+            console.log(mapArray[i][j])
+            if(mapArray[i][j] === "player") {
+                $('#containerMap').append(tilePlayerGrass.advDetail);
+                continue;
+            }
+            if(mapArray[i][j] == 0) {
+                $('#containerMap').append(tileGrass.advDetail);
+                continue;
+            }
+            if (mapArray[i][j] == "kobold") {
+                
+                $('#containerMap').append(tileKoboldGrass.advDetail);
+            }
+            if (mapArray[i][j] == "ogre") {
+                
+                $('#containerMap').append(tileOgreGrass.advDetail);
+            }
+        }
+    }
+                                }</textarea>Here is the result! ==> <img src="assets/imgs/progress!.webp" class="blog-inner">And here is the final code, check it out!<textarea style="color: #e83e8c", readonly="true">
+<html>  <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head> 
+
+    <style>
+    /* example of a single tile */
+.grass {
+    height: 20px;
+    width: 20px;
+    position:relative;
+    float:left;
+    background-color: green;
+    outline: 1px solid #ccc;
+        }
+        
+        .grass p {
+                z-index: 2;
+    position: absolute;
+    display: block;
+    top: 0px;
+    left: 2px;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+        }
+        
+        #containerMap {
+            height: 60px;
+            width: 60px;
+        }
+    </style>
+    <script>
+
+    var mapArray = [["player", 0, "kobold"],[0,0,"kobold"],["kobold",0,"ogre"]]
+    tilesMain = [
+    tileGrass = {id: 0, name: "Grass", advDetail: '<div class="grass"></div>'},
+    tilePlayerGrass = {id: 1, name: "Player on Grass", advDetail: '<div class="grass"><p>@</p></div>'}, 
+    tileKoboldGrass = {id: 2, name: "Kobold on Grass", advDetail: '<div class="grass"><p>k</p></div>'},
+    tileOgreGrass = {id: 3, name: "Ogre on Grass", advDetail: '<div class="grass"><p>O</p></div>'}]   
+    
+    window.onload = function() {
+        drawMap()
+    }
+        function drawMap() {
+    for (var i = 0; i < mapArray.length; i++) {
+        for (var j = 0; j < mapArray[i].length; j++) { 
+            console.log(mapArray[i][j])
+            if(mapArray[i][j] === "player") {
+                $('#containerMap').append(tilePlayerGrass.advDetail);
+                continue;
+            }
+            if(mapArray[i][j] == 0) {
+                $('#containerMap').append(tileGrass.advDetail);
+                continue;
+            }
+            if (mapArray[i][j] == "kobold") {
+                
+                $('#containerMap').append(tileKoboldGrass.advDetail);
+            }
+            if (mapArray[i][j] == "ogre") {
+                
+                $('#containerMap').append(tileOgreGrass.advDetail);
+            }
+        }
+    }
+}
+    
+            
+        
+    </script>
+<body>
+    Hi!
+    <p>@</p>
+    <!--
+    <div class="grass"><p>@</p></div>
+-->
+    <div id="containerMap">
+                <!-- example tile for testing purposes, containerMap should be empty when first loaded. -->
+             <!--   <div class="grass"></div>   -->
+        </div>
+    </body>
+</html></textarea>Now let's walk through the code step by step. We define the html and head tags first. (tags are Html's way of identifying things. We then import jQuery as a tool. Then we define the indoc styles we need. <code>.grass</code>,<code>.grass p</code>, and<code>#containerMap</code> These all allow the page to be styled properly to our liking. For some quick tips on the attributes <code>background-color</code> in grass turns it green. <code>height</code> and <code>width</code> in grass define the size of each tile, hope you kept those assets small! After the styling, we come across <code>mapArray</code> and <code>tilesMain</code> which store our needed data. I usually put stuff like that in a data.js that gets loaded first for housekeeping. mapArray is a 2D array, which means its nested. You have to go two levels deep to get the data out. The reason for <code>mapArray[i][j]</code> later in the code.
+                            <br/>Whew. I'm tired. Lets keep going. We call <code>windows.onload = function(){drawMap()}</code> to get things started before the player sees. It calls drawMap, so let's talkl about it. drawMap is made of a nested for loop that allows you to access the nested array. Finally we used jQuery to append the data set in our tilesMan array, made of dictionaries.<br/><br/>
+                            That's all for part two, stick around for Godot. But I hope you can use something from this web tutorial!</p>
+						</div>
+					</div>
+                </div>
+                    <div class="inner">
 					<div id="2021-feb" class="spotlight">
 						<div class="image">
+                            <img alt="First! Number one post!" src="assets/imgs/one.webp">
 						</div>
 						<div class="content">
 							<h3>First Post</h3>
@@ -77,12 +360,7 @@ Links</a>
                             <br> I started with nicehash this year with my 1060. Not seeing huge profits, but its nice to have bitcoin, but it could drop anytime - guess I'll sell. Want to make at least $50 before that. Messed around with my overclocking, but couldnt get it stable. Am fine with default for now. I dream of having a mining rig one day.</p>
 						</div>
 					</div>
-                    <!--
-					<ul class="actions special">
-						<li><a href="#" class="button alt">Ipsum magna tempus</a></li>
-					</ul>
-                    -->
-				</div>
+                        </div>
 			</section>
 
 		<!-- Contact -->
@@ -114,6 +392,7 @@ Links</a>
 						<ul class="contact fa-ul">
 							<li><i style="color: #00BC8A;" class="fab fa-twitter"></i><span style="margin: 5px;"></span><a href="https://twitter.com/KaizarNike">@Kaizarnike</a></li>
                             <li><i style="color: #00BC8A;" class="fab fa-itch-io"></i><span style="margin: 5px;"></span><a href="https://kaizarnike.itch.io/">KaizarNike</a></li>
+                            <li><i style="color: #00BC8A;" class="fab fa-youtube"></i><span style="margin: 5px;"></span><a href="https://www.youtube.com/channel/UCGye3sp0VSkbomdbP9hsoRw">Kaizar Nike on Youtube</a></li>
                             <!--
 							<li class="fa-facebook"><a href="#">facebook.com/untitled-tld</a></li>
 							<li class="fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>
@@ -124,7 +403,9 @@ Links</a>
 					</section>
 				</div>
 			</section>
-
+                <div>
+        <p id="lastUpdate">A long time ago.</p>
+        </div>
 		<!-- Footer &copy; Untitled. All rights reserved. Images: <a href="http://unsplash.com">Unsplash</a>.  -->
 			<footer id="footer">
 				<div class="copyright">
