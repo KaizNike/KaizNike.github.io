@@ -1,4 +1,4 @@
-let Update = "Wed, Oct 27, 2021";
+let Update = "Sat, Sept 24, 2022";
 
 (function(window, document, undefined){
 
@@ -7,7 +7,7 @@ let Update = "Wed, Oct 27, 2021";
 window.onload = init;
 
   function init(){
-      console.log(document.getElementById("lastUpdate").innerHTML)
+      console.log(Update)
       document.getElementById("lastUpdate").innerHTML = "Last updated on " + Update
     // the code to be called when the dom has loaded
     // #document has its nodes
