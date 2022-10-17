@@ -1,4 +1,5 @@
-var version = "0.2.1";
+var version = "0.3";
+// Keyboard Events!
 // -30, -8 - good for Kowloon Start
 
 var x = 0;    // holds x movement, defines starting position, defines north/south
@@ -13,6 +14,51 @@ document.write(x + ",");
 document.write(y);	
 document.write(" Script Intialized");
 document.write(" Version: " + version);
+/*
+function onEvent(event) {
+    if (event.key === "W") {
+        moveNorth();
+    }
+    if (event.key === "S") {
+        moveSouth();
+    }
+    if (event.key === "A") {
+        moveEast();
+    }
+    if (event.key === "D") {
+        moveWest();
+    }
+}
+*/
+document.addEventListener("keydown", (event) => {
+    if (event.defaultPrevented) {
+        return; // Nothing happens if event processed.
+    }
+
+    switch (event.key) {
+        case "w":
+        case "ArrowUp":
+            moveNorth();
+            break;
+        case "s":
+        case "ArrowDown":
+            moveSouth();
+            break;
+        case "a":
+        case "ArrowLeft":
+            moveEast();
+            break;
+        case "d":
+        case "ArrowRight":
+            moveWest();
+            break
+        default:
+            return;
+    }
+
+    event.preventDefault();
+}, true);
+
 
 // when N is pressed
 function moveNorth() {
@@ -212,6 +258,7 @@ function activateItem() {
             document.getElementById("location-logic").innerHTML = "You enter the hill stead.";
             document.getElementById("location-description").innerHTML = "Inside you find an old man tending the fire place in the living room. He invites you to sit on a chair and as you do so, he begins to tell a tale. He spins a tale of three kings who shared dominion over these lands. To cement their rule, and their friendship - they forged three rings of power. Those kings are long dead, the artifacts long lost. <br> I wouldn't ask this of anyone but the greatest heroes, but I need those rings. My daughter is deathly ill from a mighty curse - you can hear someone coughing. That's her, she has fallen ill from drinking from the river nearby. I took her to many doctors, yet none could diagnose what ails her. Finally a witch doctor told me of the rings, and now I implore you to find those rings and use them to help my poor girl.";
             document.getElementById("item-logic").innerHTML = "You may leave when ready.";
+            quest();
         }
         else if (x == 4 && y == 6 && ringsOfPower == 1) {
             document.getElementById("location-logic").innerHTML = "You return to the hill stead and enter."
@@ -326,10 +373,10 @@ function quest() {
     else if (ringsOfPower == 2) {
         valRingsOfPowerQuest = "Obtain the Rings of Power (1/3) (4,6)";
     }
-    else if (ringsOfPower == 2) {
+    else if (ringsOfPower == 3) {
         valRingsOfPowerQuest = "Obtain the Rings of Power (2/3) (4,6)";
     }
-    else if (ringsOfPower == 2) {
+    else if (ringsOfPower == 4) {
         valRingsOfPowerQuest = "Obtain the Rings of Power *(3/3) (4,6)";
     }
     document.getElementById("quests").innerHTML = "Quests: " + valRingsOfPowerQuest;    // add new values as new quests are obtained
