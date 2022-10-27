@@ -1,5 +1,5 @@
-var version = "0.3.1";
-// Keyboard Events!
+var version = "0.3.2";
+// Starts of the River Settlement (5,5)
 // -30, -8 - good for Kowloon Start
 
 var x = 0;    // holds x movement, defines starting position, defines north/south
@@ -149,6 +149,13 @@ function locationFinal() {
         document.getElementById("location-description").innerHTML = "You continue along the great river, it continues along this path as far as you can see, and likely much further."
         sameTerrain = true;
     }
+    else if (x == 5 && y == 5 && sameTerrain == true) {
+        document.getElementById("location-description").innerHTML = "As you continue along this river, you get the feeling a great many people rely on this massive divider to move goods, travel, fish, and drink from its fresh waters. Here you find one example of what one society did to live, a wholly on water series of huts."
+        sameTerrain = true
+    }
+    else if (x == 5 && y == 5 && sameTerrain == false) {
+        document.getElementById("location-description").innerHTML = "You've found the great river, and more importantly, a small settlement upon it."
+    }
     else if (x == 4 && y == 6) {
         document.getElementById("location-description").innerHTML = "You come across a lonely hill stead, leading up the path are a series of signs that ask adventurers to inquire inside.";
     }
@@ -186,7 +193,7 @@ function locationFinal() {
     }		
 }
 // if inside a structure or city, use these locations, first setup an insideLocation variable for each location you may enter and set it to true when you enter a location with z.
-var insideKowloonCity = false;
+var insideKowloonCity = false; var inside55RiverSettlement = false;
 // PAUSED - CURRENTLY WORKING ON
 function insideFinal() {
     if (insideKowloonCity == true) {
@@ -268,6 +275,12 @@ function activateItem() {
             document.getElementById("location-description").innerHTML = "Upon your return the old man is eager to help you on your quest. He has little idea of where to find the rings, but he knows a solution. 'Seek the witch doctor, I implore you!' He hands you a cup of tea and explains, 'I see him very rarely but hear he lives near the old starport, do try to find him and ask him for the rings' locations.'";
             document.getElementById("item-logic").innerHTML = "You may leave after finishing your tea.";
         }
+        else if (x == 5 && y == 5) {
+            document.getElementById('location-logic').innerHTML = "You enter the river settlement."
+            ifInside = true;
+            inside55RiverSettlement = true;
+            insideFinal();
+        }
         // PAUSED - CURRENTLY WORKING ON
         else if (x == -32 && y == -8 && ifInside == false) {
             document.getElementById("location-logic").innerHTML = "It takes some time to get through customs, but eventually you enter the walled city.";
@@ -304,6 +317,10 @@ function findItem() {
     }
     else if (x == 4 && y == 6) {
         document.getElementById("item-logic").innerHTML = "You may enter the hill stead.";
+        locationHere = true;
+    }
+    else if (x == 5 && y == 5) {
+        document.getElementById("item-logic").innerHTML = "Despite the starport being so nearby, you have no idea how you will be recieved.";
         locationHere = true;
     }
     else if (x == 8 && y == 5 && itemLaserRifle == true) {
