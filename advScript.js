@@ -1,4 +1,4 @@
-var version = "0.3";
+var version = "0.3.1";
 // Keyboard Events!
 // -30, -8 - good for Kowloon Start
 
@@ -46,12 +46,15 @@ document.addEventListener("keydown", (event) => {
             break;
         case "a":
         case "ArrowLeft":
-            moveEast();
+            moveWest();
             break;
         case "d":
         case "ArrowRight":
-            moveWest();
+            moveEast();
             break
+        case "z":
+            activateItem();
+            break;
         default:
             return;
     }
@@ -308,7 +311,7 @@ function findItem() {
         document.getElementById("item-logic").innerHTML = "There is no longer a laser rifle here.";
     }
     // robber code - sets stolenLaserRifle to true, should be checked later to find the rifle again
-    else if (x == 18 && y == 5 && itemLaserRifle == true) {
+    else if (x == 18 && ( y == 5 || y == 0) && itemLaserRifle == true) {
         document.getElementById("item-logic").innerHTML = "A capricious goblin thief eyes your laser rifle, before you can react you are on the ground. Less one laser rifle.";
         stolenLaserRifle = true;
         itemLaserRifle = false;
