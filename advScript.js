@@ -30,7 +30,7 @@ function onEvent(event) {
     }
 }
 */
-document.addEventListener("keydown", (event) => {
+document.addEventListener("keydown", function (event) {
     if (event.defaultPrevented) {
         return; // Nothing happens if event processed.
     }
@@ -141,6 +141,13 @@ function locationFinal() {
      else if (x == 1 && y == 0) {
         document.getElementById("location-description").innerHTML = "You arrive at the castle market, it is bustling with merchants and commoners alike. There is nothing you'd find of use for sale.";
     }
+    else if (x == 5 && y == 5 && sameTerrain == true) {
+        document.getElementById("location-description").innerHTML = "As you continue along this river, you get the feeling a great many people rely on this massive divider to move goods, travel, fish, and drink from its fresh waters. Here you find one example of what one society did to live, a wholly on water series of huts."
+        sameTerrain = true
+    }
+    else if (x == 5 && y == 5 && sameTerrain == false) {
+        document.getElementById("location-description").innerHTML = "You've found the great river, and more importantly, a small settlement upon it."
+    }
     else if (x == 5 && sameTerrain == false) {
         document.getElementById("location-description").innerHTML = "You arrive at the great river.";
         sameTerrain = true;
@@ -148,13 +155,6 @@ function locationFinal() {
     else if (x == 5 && sameTerrain == true) {
         document.getElementById("location-description").innerHTML = "You continue along the great river, it continues along this path as far as you can see, and likely much further."
         sameTerrain = true;
-    }
-    else if (x == 5 && y == 5 && sameTerrain == true) {
-        document.getElementById("location-description").innerHTML = "As you continue along this river, you get the feeling a great many people rely on this massive divider to move goods, travel, fish, and drink from its fresh waters. Here you find one example of what one society did to live, a wholly on water series of huts."
-        sameTerrain = true
-    }
-    else if (x == 5 && y == 5 && sameTerrain == false) {
-        document.getElementById("location-description").innerHTML = "You've found the great river, and more importantly, a small settlement upon it."
     }
     else if (x == 4 && y == 6) {
         document.getElementById("location-description").innerHTML = "You come across a lonely hill stead, leading up the path are a series of signs that ask adventurers to inquire inside.";
