@@ -13,6 +13,9 @@ document.write(x + ",");
 document.write(y);	
 document.write(" Script Intialized");
 document.write(" Version: " + version);
+document.write(" Date Updated: 7-31-2024")
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById("hide-on-load").style.display = "none"; }, false);
 
 // when N is pressed
 function moveNorth() {
