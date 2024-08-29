@@ -19,3 +19,11 @@
 .hidden {
     display: none;
 }
+
+.ads-img {
+    max-height: 300px;
+}
+
+#index-ad-one {
+    background-image: linear-gradient(45deg, #773848, #ffe8db);
+}
