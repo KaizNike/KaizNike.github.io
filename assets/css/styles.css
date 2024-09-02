@@ -22,6 +22,7 @@
 
 .ads-img {
     max-height: 300px;
+    max-width: 100%;
 }
 
 #index-ad-one {
