@@ -20,6 +20,16 @@
     display: none;
 }
 
+.hidden img {
+    max-width: 100%;
+}
+
+.content iframe {
+    width: 100% !important;
+    height: 300px !important;
+    display: block;
+}
+
 .ads-img {
     max-height: 300px;
     max-width: 100%;
