@@ -1,5 +1,5 @@
 # KaizNike.github.io
-My personal portfolio, looking for gamedev work. [Link](https://kaiznike.github.io/)
+Busy but not really. [Link heel!](https://kaiznike.github.io/)
 
-## 2021 August Change
-No more Google Analytics! After shopping around, I'm not replacing it with anything, no more tracking!
+## 2026 New Year, Clean Site
+(If nly i cleant my room this nicely.)
